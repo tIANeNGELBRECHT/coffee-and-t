@@ -4,6 +4,8 @@ import pluginVue from 'eslint-plugin-vue'
 import pluginQuasar from '@quasar/app-vite/eslint'
 import { defineConfigWithVueTs, vueTsConfigs } from '@vue/eslint-config-typescript'
 import prettierSkipFormatting from '@vue/eslint-config-prettier/skip-formatting'
+import pluginPrettier from 'eslint-plugin-prettier'
+
 
 export default defineConfigWithVueTs(
   {
@@ -79,6 +81,15 @@ export default defineConfigWithVueTs(
       globals: {
         ...globals.serviceworker
       }
+    }
+  },
+
+  {
+    plugins: {
+      prettier: pluginPrettier
+    },
+    rules: {
+      'prettier/prettier': 'error'
     }
   },
 

@@ -1,40 +1,32 @@
 # Coffee & T (coffee-and-t)
 
-Track sales and profits for a coffee business
+Track sales and profits for a coffee business using a desktop app built with Quasar and Electron.
 
-## Install the dependencies
+## Install dependencies
+
+```bash 
+npm install 
+```
+## Run the app in development mode (with hot reload)
 ```bash
-yarn
-# or
-npm install
+quasar dev -m electron
 ```
 
-### Start the app in development mode (hot-code reloading, error reporting, etc.)
-```bash
-quasar dev
-```
+## Lint the files
 
-
-### Lint the files
-```bash
-yarn lint
-# or
+``` bash
 npm run lint
 ```
 
-
-### Format the files
-```bash
-yarn format
-# or
+## Format the files
+``` bash
 npm run format
 ```
 
-
-### Build the app for production
-```bash
-quasar build
+## Build the app for production
+``` bash
+quasar build -m electron
 ```
 
-### Customize the configuration
-See [Configuring quasar.config.js](https://v2.quasar.dev/quasar-cli-vite/quasar-config-js).
+## Customize Configuration
+See Quasar [Configuration](https://v2.quasar.dev/quasar-cli-vite/quasar-config-js).
