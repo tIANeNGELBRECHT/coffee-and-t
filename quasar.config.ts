@@ -2,6 +2,7 @@
 // https://v2.quasar.dev/quasar-cli-vite/quasar-config-file
 
 import { defineConfig } from '#q-app/wrappers';
+import path from 'path';
 
 export default defineConfig((/* ctx */) => {
   return {
@@ -40,6 +41,14 @@ export default defineConfig((/* ctx */) => {
         node: 'node20'
       },
 
+      extendViteConf(viteConf) {
+        viteConf.resolve = viteConf.resolve || {};
+        viteConf.resolve.alias = {
+          ...(viteConf.resolve.alias || {}),
+          '@': path.resolve(__dirname, 'src'),  // <-- add this alias
+        };
+      },
+
       typescript: {
         strict: true,
         vueShim: true
@@ -64,7 +73,7 @@ export default defineConfig((/* ctx */) => {
 
       // extendViteConf (viteConf) {},
       // viteVuePluginOptions: {},
-      
+
       vitePlugins: [
         ['vite-plugin-checker', {
           vueTsc: true,
@@ -84,7 +93,18 @@ export default defineConfig((/* ctx */) => {
 
     // https://v2.quasar.dev/quasar-cli-vite/quasar-config-file#framework
     framework: {
-      config: {},
+      config: {
+        brand: {
+          primary: '#9E681F',
+          secondary: '#26A69A',
+          accent: '#9C27B0',
+          dark: '#1d1d1d',
+          positive: '#21BA45',
+          negative: '#C10015',
+          info: '#31CCEC',
+          warning: '#F2C037'
+        }
+      },
 
       // iconSet: 'material-icons', // Quasar icon set
       // lang: 'en-US', // Quasar language pack
